@@ -125,11 +125,13 @@
 
 
     $("#start_btn").on('click', () => {
-        myInterval = setInterval(updateLightPanel, 100);
+        myInterval = setInterval(updateLightPanel, 80);
+        $('#audio')[0].play();
     });
 
     $("#stop_btn").on('click', () => {
         clearInterval(myInterval);
+        $('#audio')[0].pause();
     });
 
 </script>

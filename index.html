@@ -52,6 +52,10 @@
         }
 
         .light_ON_after {
+            background: #FF5159;
+        }
+
+        .light_ON_after-2 {
             background: lightcoral;
         }
 
@@ -80,6 +84,51 @@
 <script src="assets/lib/jquery-3.7.1.min.js"></script>
 
 <script>
+
+    var current_light_index = 0;
+    var max_light_count = 6;
+    var move = "RIGHT";
+    var myInterval = null;
+
+    function updateLightPanel() {
+        //$('.lights').eq(current_light_index).css({background: "red"});
+        $('.lights').removeClass("light_ON");
+        $('.lights').removeClass("light_ON_after");
+        $('.lights').removeClass("light_ON_after-2");
+        $('.lights').eq(current_light_index).addClass("light_ON");
+
+        if (move==="RIGHT") {
+
+            if (current_light_index!==0){
+                $('.lights').eq(current_light_index-1).addClass("light_ON_after");
+                if(current_light_index!==1){
+                    $('.lights').eq(current_light_index-2).addClass("light_ON_after-2");
+                }
+            }
+            ++current_light_index;
+            if (current_light_index>max_light_count-2){
+                move = "LEFT";
+            }
+        }else {
+
+            $('.lights').eq(current_light_index+1).addClass("light_ON_after");
+            $('.lights').eq(current_light_index+2).addClass("light_ON_after-2");
+
+            --current_light_index;
+            if (current_light_index===0){
+                move = "RIGHT";
+            }
+        }
+    }
+
+
+    $("#start_btn").on('click', () => {
+        myInterval = setInterval(updateLightPanel, 100);
+    });
+
+    $("#stop_btn").on('click', () => {
+        clearInterval(myInterval);
+    });
 
 </script>
 

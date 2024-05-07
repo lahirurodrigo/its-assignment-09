@@ -6,6 +6,10 @@
 
     <style>
 
+        body {
+            overflow: hidden;
+        }
+
         #content {
             width: 100vw;
             height: 100vh;
@@ -15,9 +19,19 @@
             background: black;
         }
 
-        #light {
+        #upper {
             grid-column: 1/2;
             grid-row: 1/2;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            align-content: flex-end;
+
+        }
+
+        #light {
 
             display: flex;
             justify-content: center;
@@ -59,6 +73,19 @@
             background: lightcoral;
         }
 
+        .line {
+            width: 28%;
+            height: 1px;
+            background: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #e57373;
+            margin-bottom: 5px;
+        }
+
     </style>
 
 </head>
@@ -66,14 +93,30 @@
 
 <section id="content">
 
-    <div id="light">
-        <div id="value1" class="lights"></div>
-        <div id="value2" class="lights"></div>
-        <div id="value3" class="lights"></div>
-        <div id="value4" class="lights"></div>
-        <div id="value5" class="lights"></div>
-        <div id="value6" class="lights"></div>
+    <div id="upper">
+
+        <h1>JavaScript Knight Rider</h1>
+
+        <div class="line"></div>
+
+        <div id="light">
+
+            <div id="value1" class="lights"></div>
+            <div id="value2" class="lights"></div>
+            <div id="value3" class="lights"></div>
+            <div id="value4" class="lights"></div>
+            <div id="value5" class="lights"></div>
+            <div id="value6" class="lights"></div>
+
+        </div>
+
+        <div class="line"></div>
+
     </div>
+
+
+
+
 
     <div id="button">
         <button id="start_btn">Start</button>
